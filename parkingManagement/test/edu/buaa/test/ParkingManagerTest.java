@@ -19,14 +19,14 @@ public class ParkingManagerTest {
      *
      */
     @Test
-    public void parkBoy_ShouldParkCar(){
+    public void parkManager_ShouldParkCar(){
         Car car=new Car();
         int maxParkingNum=20;
         ParkPlace parkPlace=new ParkPlace(maxParkingNum);
         ArrayList<ParkPlace> parkPlaces=new ArrayList<ParkPlace>();
         parkPlaces.add(parkPlace) ;
-        ParkingBoy parkingBoy= new ParkingBoy(parkPlaces, new FirstAvailableParkingLotChooser());
-        Ticket ticket=parkingBoy.park(car);
-        Assert.assertEquals(new Integer(maxParkingNum - 1), parkingBoy.getAvailableNum());
+        ParkingWorker parkingWorker= new ParkingManager(parkPlaces, new FirstAvailableParkingLotChooser());
+        Ticket ticket=parkingWorker.park(car);
+        Assert.assertEquals(new Integer(maxParkingNum - 1), parkingWorker.getAvailableNum());
     }
 }
