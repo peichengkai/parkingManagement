@@ -2,7 +2,7 @@ package edu.buaa.park;
 
 import java.util.List;
 
-public class ParkingBoy {
+public class ParkingBoy implements ParkingWorker {
     protected List<ParkPlace> parkPlaces;
     private final ParkingLotChooser parkingLotChooser;
 
