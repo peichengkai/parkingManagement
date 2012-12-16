@@ -1,5 +1,6 @@
 package edu.buaa.park;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,6 +19,7 @@ public class ParkingManager implements ParkingWorker {
 
             this.parkPlaces=parkPlaces;
             this.parkingLotChooser = parkingLotChooser;
+            this.parkingBoys = new ArrayList<ParkingBoy>();
 
     }
 
@@ -34,11 +36,17 @@ public class ParkingManager implements ParkingWorker {
     }
 
     public void setParkingBoys(List<ParkingBoy> parkingBoys){
-        this.parkingBoys=   parkingBoys;
+        //this.parkingBoys=   parkingBoys;
+        for(ParkingBoy parkBoy:parkingBoys){
+               addParkingBoy(parkBoy);
+        }
     }
 
-    public void addParkingBoys(ParkingBoy parkingBoy){
+    public void addParkingBoy(ParkingBoy parkingBoy){
+
         parkingBoys.add( parkingBoy);
+        parkPlaces.addAll(parkingBoy.getParkPlaces());
+
     }
 
     public Ticket park(Car car) {
@@ -59,6 +67,10 @@ public class ParkingManager implements ParkingWorker {
             if(fetchedCar!=null){return fetchedCar;}
         }
         throw new NoCarException("没有此车");
+    }
+
+    public List<ParkPlace> getParkPlaces(){
+        return parkPlaces;
     }
 
 }

@@ -30,4 +30,8 @@ public class ParkingBoy implements ParkingWorker {
         throw new NoCarException("没有此车");
     }
 
+    public List<ParkPlace> getParkPlaces(){
+        return parkPlaces ;
+    }
+
 }
