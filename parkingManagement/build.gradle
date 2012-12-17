@@ -1,4 +1,5 @@
 apply plugin:"java"
+apply plugin: "idea"
 
 sourceCompatibility=1.7
 
@@ -10,14 +11,24 @@ dependencies {
     testCompile 'junit:junit:4.10'
 }
 
-/*
-test {
-   include 'test/edu/buaa/test/*Test'
-
-   useJUnit()
+test { 
+ 		 useJUnit()
 }
- */
 
+/*
+sourceSets {
+    main {
+        java {
+            srcDir 'src/java'
+            println java.srcDirs
+
+        }
+        resources {
+            srcDir 'src/resources'
+        }
+    } 
+}
+*/
 jar{
     manifest{
         archiveName='parkingLotsModel.jar'
