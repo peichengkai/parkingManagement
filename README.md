@@ -8,3 +8,5 @@ parkingManagement
     
 第二功能:
   增加打印
+   	parkingBoy 打印
+   	Manager    打印
