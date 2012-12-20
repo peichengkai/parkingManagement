@@ -84,10 +84,8 @@ public class ParkingManager implements ParkingWorker {
            List<ParkPlace> parkPlaceses =    parkingBoy.getParkPlaces();
             String retString = "";
            for(int i =0;i<parkPlaceses.size();i++){
-
-                  retString = parkPlaceses.get(i).toString()+":"+parkPlaceses.get(i).getFullCapacity()+","+parkPlaceses.get(i).getAvailableNum()+"\n";
                  iTotalCaps=iTotalCaps+ parkPlaceses.get(i).getFullCapacity();
-               iFreeNum=iFreeNum+parkPlaceses.get(i).getAvailableNum();
+                 iFreeNum=iFreeNum+parkPlaceses.get(i).getAvailableNum();
            }
         retString+="Total:"+ iTotalCaps+"," +iFreeNum;
         return retString;
@@ -96,7 +94,7 @@ public class ParkingManager implements ParkingWorker {
     public String printManageInfo(){
         String retString = "";
        for(int i =0;i<parkingBoys.size();i++){
-           retString+=printBoyInfo(parkingBoys.get(i));
+           retString+=printBoyInfo(parkingBoys.get(i))+"\n";
 
        }
         return     retString;

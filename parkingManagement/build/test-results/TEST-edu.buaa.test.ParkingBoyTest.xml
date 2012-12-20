@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite errors="0" failures="0" hostname="lixiaomin-PC" name="edu.buaa.test.ParkingBoyTest" tests="2" time="0.06" timestamp="2012-12-20T13:19:41">
+<testsuite errors="0" failures="0" hostname="lixiaomin-PC" name="edu.buaa.test.ParkingBoyTest" tests="2" time="0.06" timestamp="2012-12-20T13:51:05">
   <properties />
   <testcase classname="edu.buaa.test.ParkingBoyTest" name="parkBoy_ShouldParkCar" time="0.005" />
   <testcase classname="edu.buaa.test.ParkingBoyTest" name="parkBoy_ShouldfetchCar" time="0.0" />
