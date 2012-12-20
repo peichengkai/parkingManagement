@@ -42,17 +42,28 @@ public class ParkingManagerTest {
         Ticket ticket=parkingBoy.park(car);
         Assert.assertEquals(new Integer(maxParkingNum - 1), parkingBoy.getAvailableNum());
 
-
         Car carM=new Car();
         int mMaxParkingNum=20;
         ParkPlace parkPlaceM=new ParkPlace(mMaxParkingNum);
         ArrayList<ParkPlace> mParkPlaces=new ArrayList<ParkPlace>();
         mParkPlaces.add(parkPlaceM) ;
         ParkingManager  parkingManager= new ParkingManager(mParkPlaces, new FirstAvailableParkingLotChooser());
-
         ticket=parkingManager.park(car);
         parkingManager.addParkingBoy(parkingBoy);
-
         Assert.assertEquals(parkingManager.getParkPlaces().size(), 2);
+    }
+
+
+    @Test
+    public void test_printPlacesInfo(){
+        Car car=new Car();
+        int mMaxParkingNum=20;
+        ParkPlace parkPlaceM=new ParkPlace(mMaxParkingNum);
+        ArrayList<ParkPlace> mParkPlaces=new ArrayList<ParkPlace>();
+        mParkPlaces.add(parkPlaceM) ;
+        ParkingManager  parkingManager= new ParkingManager(mParkPlaces, new FirstAvailableParkingLotChooser());
+        Ticket ticket=parkingManager.park(car);
+        Assert.assertEquals("20:19",parkingManager.printPlacesInfo(parkPlaceM));
+
     }
 }

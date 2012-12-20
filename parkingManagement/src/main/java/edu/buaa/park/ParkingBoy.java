@@ -34,4 +34,8 @@ public class ParkingBoy implements ParkingWorker {
         return parkPlaces ;
     }
 
+    public void printPlaceInfo(ParkPlace parkPlace){
+
+    }
+
 }

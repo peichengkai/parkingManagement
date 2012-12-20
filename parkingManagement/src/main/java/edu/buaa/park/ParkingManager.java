@@ -36,7 +36,6 @@ public class ParkingManager implements ParkingWorker {
     }
 
     public void setParkingBoys(List<ParkingBoy> parkingBoys){
-        //this.parkingBoys=   parkingBoys;
         for(ParkingBoy parkBoy:parkingBoys){
                addParkingBoy(parkBoy);
         }
@@ -71,6 +70,37 @@ public class ParkingManager implements ParkingWorker {
 
     public List<ParkPlace> getParkPlaces(){
         return parkPlaces;
+    }
+
+    public String printPlacesInfo(ParkPlace parkPlace){
+        String retString =     parkPlace.getFullCapacity()+":"+parkPlace.getAvailableNum();
+        System.out.print(retString);
+        return retString;
+    }
+
+    public String printBoyInfo(ParkingBoy parkingBoy){
+            int iTotalCaps = 0;
+            int iFreeNum = 0;
+           List<ParkPlace> parkPlaceses =    parkingBoy.getParkPlaces();
+            String retString = "";
+           for(int i =0;i<parkPlaceses.size();i++){
+
+                  retString = parkPlaceses.get(i).toString()+":"+parkPlaceses.get(i).getFullCapacity()+","+parkPlaceses.get(i).getAvailableNum()+"\n";
+                 iTotalCaps=iTotalCaps+ parkPlaceses.get(i).getFullCapacity();
+               iFreeNum=iFreeNum+parkPlaceses.get(i).getAvailableNum();
+           }
+        retString+="Total:"+ iTotalCaps+"," +iFreeNum;
+        return retString;
+    }
+
+    public String printManageInfo(){
+        String retString = "";
+       for(int i =0;i<parkingBoys.size();i++){
+           retString+=printBoyInfo(parkingBoys.get(i));
+
+       }
+        return     retString;
+
     }
 
 }
